@@ -1,4 +1,4 @@
-::StoryTitle
+﻿::StoryTitle
 hello world
 
 ::StoryIFID[twee2]
@@ -29,8 +29,11 @@ Twee2::build_config.story_ifid = '7e147ea0-9d1a-4e70-87e7-117b9d692d6b'
 
 You found: $r X$nb.
 
-(if: $mapPokeInventory's $r is 0)[zéro](else:)[pas zéro]
-test: (print: $mapPokeInventory's $r
+(if: not $r is in $mapPokeInventory)[
+	(set: $mapPokeInventory to it + (datamap: $r, $nb))
+](else:)[
+	(set: $mapPokeInventory to it + (datamap: $r, $nb+$r of $mapPokeInventory))
+]
 
 
 (set: $mapPokeInventory's $r to $nb)
