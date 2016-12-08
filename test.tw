@@ -1,0 +1,42 @@
+::StoryTitle
+hello world
+
+::StoryIFID[twee2]
+Twee2::build_config.story_ifid = '7e147ea0-9d1a-4e70-87e7-117b9d692d6b'
+
+::Start
+(set: $mapPokeInventory to (datamap:))
+
+(set: $aPokeList to (a: 
+	"Bulbasaur", 
+	"Charmander", 
+	"Squirtle", 
+	"Pikachu", 
+	"Mewtwo"
+))
+
+(print: $mapPokeInventory)
+
+
+(set: $activePoke to "Pikachu")
+
+[[Open egg]]
+
+
+:: Open egg
+(set: $r to (either:...$aPokeList) )
+(set: $nb to (random:1, 5))
+
+You found: $r X$nb.
+
+(if: $mapPokeInventory's $r is 0)[zéro](else:)[pas zéro]
+test: (print: $mapPokeInventory's $r
+
+
+(set: $mapPokeInventory's $r to $nb)
+
+Inventory: (print: $mapPokeInventory)
+
+)
+
+[[Open egg]]
